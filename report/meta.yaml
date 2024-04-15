@@ -7,5 +7,9 @@ keywords: [MNIST, Handwritten Digit Classification, Digit Classification]
 papersize: a4
 lang: "en"
 bibliography: references.bib
+titlepage: true
+titlepage-rule-color: "360049"
+titlepage-rule-height: 0
+titlepage-background: "assets/background.pdf"
 link-citations: true
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl

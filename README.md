@@ -14,22 +14,23 @@ Within this project, we explore the seminal paper: "Gradient-Based Learning Appl
 |:--:| 
 | *Reprinted from \cite{BankCheckImage} under fair use and education.* |
 
-#### Background Context
+## Background Context
 
-"Real-life document recognition systems are composed of multiple modules including field extraction, segmentation, recognition, and language modeling" \cite{Lecun1998}. Our project will focus mainly on the recognition part of the process. Within the realm of recognition, specifically handwriting recognition (HWR), there are two methods: online and offline.
+"Real-life document recognition systems are composed of multiple modules including field extraction, segmentation, recognition, and language modeling" [@Lecun1998]. Our project will focus mainly on the recognition part of the process. Within the realm of recognition, specifically handwriting recognition (HWR), there are two methods: online and offline.
 
 | ![assets/offline_online.png](assets/offline_online.png)| 
 |:--:| 
-| *Showcasing offline vs online methodologies of HWR* |
+| *Showcasing offline vs online methodologies of HWR* [@Jayadevan2011] |
 
-1. **Online methods** - "Online methods involve a digital pen/stylus and have access to the stroke information, pen location while text is being written as seen in the figure [above]. Since they tend to have a lot of information in regard to the flow of text being written they can be classified at a pretty high accuracy and the demarcation between different characters in the text becomes much more clear." \cite{Matcha_2022}.
+1. **Online methods** - "Online methods involve a digital pen/stylus and have access to the stroke information, pen location while text is being written as shown in the figure. Since they tend to have a lot of information in regard to the flow of text being written they can be classified at a pretty high accuracy and the demarcation between different characters in the text becomes much more clear" [@Matcha_2022].
 
-1. **Offline methods** - "Offline methods involve recognizing text once it's written down and hence won't have information to the strokes/directions involved during writing a possible addition of some background noise from the source [like] paper" \cite{Matcha_2022}. 
+1. **Offline methods** - Offline methods involve recognizing text once it's written down and thus won't have information to the strokes/directions involved during writing, however, it will also have the addition of some background noise such as paper and shadows. [@Matcha_2022].
 
 
-To read a bank check, all of these processes must occur to figure out the date of check, payee, amount (in words and numeric form), memo, and signature. This project will focus upon identifying the amount (in numeric form) from a check, where specifically we will build the identification/recognition module to classify the handwritten digits, the amount specified, within a check.
+This project will focus on following the applications mentioned in the seminal paper, where we will build an identification/recognition module to read a bank check. All the processes within document recognition must occur to read a bank check's various components: date, payee, amount (in word form), amount (in numeric form), and signature. Due to time constraints, we will focus only building the module to classify the handwritten digits within the amount specified field of a check, and leave the rest of the implementation to our readers as our approach can be extended to the other fields as well.
 
-### Problem Statement
+
+## Problem Statement
 
 > [!NOTE]
 > *This problem statement is slightly different from the original project submission due to my own personal interests changing, but the subject area and solution application remain the same. The focus has shifted from online HWR method from a pen computer into an offline HWR method.*
