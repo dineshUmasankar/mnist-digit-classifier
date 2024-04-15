@@ -10,7 +10,11 @@ This is a general overview of how I'm generating the PDF version of the project 
 
 ## Instructions
 
-- Run the following command from the root directory of this repository
+- Run the following command(s) from the root directory of this repository
+
+    ```shell
+    alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
+    ```
 
     ```shell
     pandock --listings \
