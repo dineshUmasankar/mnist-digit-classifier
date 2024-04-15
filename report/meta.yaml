@@ -1,0 +1,11 @@
+title: "Handwritten Digit Classification (MNIST)"
+author: 
+  - Dinesh Umasankar
+date: \today
+subject: "Machine Learning"
+keywords: [MNIST, Handwritten Digit Classification, Digit Classification]
+papersize: a4
+lang: "en"
+bibliography: references.bib
+link-citations: true
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl

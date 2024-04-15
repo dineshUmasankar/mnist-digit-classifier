@@ -14,12 +14,7 @@ This is a general overview of how I'm generating the PDF version of the project 
 
     ```shell
     alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
-    ```
-
-    ```shell
-    pandock --listings \
-    --template https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex \
-    --output=report/report.pdf "report/report.md"
+    pandock --listings -o report/report.pdf --metadata-file=report/meta.yaml --citeproc "report/report.md" --template eisvogel
     ```
 
 ## Credits / Resources / Many Thanks To
