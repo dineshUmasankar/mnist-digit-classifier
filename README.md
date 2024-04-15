@@ -32,20 +32,26 @@ To read a bank check, all of these processes must occur to figure out the date o
 ### Problem Statement
 
 > [!NOTE]
-> *This problem statement is different from the original project submission due to my own personal interests changing, but the subject area and solution application remain the same.*
+> *This problem statement is slightly different from the original project submission due to my own personal interests changing, but the subject area and solution application remain the same. The focus has shifted from online HWR method from a pen computer into an offline HWR method.*
 
 **As a user of a bank, I would like to send a picture of my check in order to process the transaction.**
 
-Within this scenario, our bank already has the multiple module system running, except requires a handwritten digit recognition model in order to extract the amount that needs to be transacted between both parties.
+Within this scenario, our hypothetical bank already has the multiple module system running, except they require a handwritten digit recognition model in order to extract the amount that needs to be transacted between both parties.
 
-As the user will be sending a picture, the project primarily focuses on handwriting recognition via the offline method, and will try to optimize within that in mind.
+As the user will be sending a picture, the project primarily focuses on handwriting recognition via the offline method, and will try to optimize with that in mind.
 
 ### Objective
 
-This project can be expanded 
+Build out an identification / recognition module for the amount (in numeric form) field from a check to classify handwritten digits in the context of a bank check reader application within a hypothetical bank.
 
 ### Motivation
 
+There are numerous physical forms and papers, and building out the digit classification system could further digital transformation of existing businesses and industries. By digitizing, it opens up a whole new array of possibilities to analyze at depth for any company, such as being able to feed the information into a Retrieval-Augmented Generation (RAG) model to extract key insights. Furthermore, it would be the first stepping stone to build a generalized OCR system that can be applied regardless of context.
 
 ### Significance
+
+The significance of this project is to showcase the ability to convert physical documents into electronic format(s), which would increase one's capability to search and retrieve, and possibly generate new content, especially in our modern day of generative artificial intelligence. The principle(s) of this project can be applied into any application-specific or industry-specific instance to provide key insights or accelerate existing processes.
+
+### Related Work
+
 
