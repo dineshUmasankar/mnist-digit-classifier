@@ -31,7 +31,8 @@ To read a bank check, all of these processes must occur to figure out the date o
 
 ### Problem Statement
 
-> [!NOTE] This problem statement is different from the original project submission due to my own personal interests changing, but the subject area and solution application remain the same.*
+> [!NOTE]
+> *This problem statement is different from the original project submission due to my own personal interests changing, but the subject area and solution application remain the same.*
 
 **As a user of a bank, I would like to send a picture of my check in order to process the transaction.**
 
