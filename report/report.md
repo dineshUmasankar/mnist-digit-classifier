@@ -66,21 +66,35 @@ In terms of the scope of this project, (and what I personally understand), I wil
 
 "The database used to train our models comes from modifications made by the original seminal paper's authors. The original database was constructed by combining the National Institute of Standards and Technology's (NIST) Special Database 3 (SD-3) and Special Database 1 (SD-1), which contained binary images of handwritten digits. SD-3 was originally collected from Census Bureau employees, while SD-1 was collected among high-school students" [@Lecun1998]. The original black and white (bilevel) images were size-normalized and centered in a fixed size of 28x28 pixels by the original authors, and they had also created many versions that involved anti-aliasing (image interpolation) and deslanting techniques applied on the images as well [@Lecun1998].
 
+![Size-normalized examples from the MNIST database [@Lecun1998].](assets/data_preview.png)
+
+\newpage
+
 ### Data Format
 
 These images of scanned handwriting samples are from 250 people (each for the training and test set) and are grayscale and 28 by 28 pixels in size, where each pixel range(s) from 0-255 on the black to white color channel [@Nielsen2015]. The pixels will be represented as a 1-D vector of 784 entries that range from 0-255 representing pixel intensity.
 
 There are 60,000 train samples (bilevel images) of handwritten digits from 250 people, and 10,000 test samples (bilevel) images from 250 different people as well, which will respectively be used to train up classification models to recognize handwritten digits [@lecun2010mnist].
 
-\newpage
-
 ### Data Example
 
 ![First 9 handwritten digits from the training dataset of the MNIST Database](assets/data_example.png)
 
+\newpage
+
 ## Methodology
 
 ### Data Visualization
+
+As we are dealing with a classification problem, I wanted to identify if there were any class imbalances before training a model, so I visualized the frequency of digits within the training dataset, and it appears to be evenly spread.
+
+![Training MNIST Database Digit Distribution](assets/train_digit_distrib.png)
+
+\newpage
+
+Along the same manner, I wanted to ensure there is no class imbalance in the testing dataset as well, and the frequencies of each digit appear to be distributed evenly as well.
+
+![Test MNIST Database Digit Distribution](assets/test_digit_distrib.png)
 
 \newpage
 
