@@ -14,7 +14,7 @@ This is a general overview of how I'm generating the PDF version of the project 
 
     ```shell
     alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
-    pandock --listings -o report/report.pdf --metadata-file=report/meta.yaml --citeproc "report/report.md" --template eisvogel
+    pandock --listings -o report/report.pdf --metadata-file=report/meta.yaml --citeproc "report/report.md" --template eisvogel --filter pandoc-latex-environment
     ```
 
 ## Credits / Resources / Many Thanks To

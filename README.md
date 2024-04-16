@@ -1,6 +1,6 @@
 # Handwritten Digit Classification (MNIST)
 
-By: @dineshUmasankar
+By: Dinesh Umasankar
 
 ## Introduction
 
@@ -10,11 +10,7 @@ Through the marvels of optical character recognition (OCR), handwritten content 
 
 Within this project, we explore the seminal paper: "Gradient-Based Learning Applied to Document Recognition", in order to apply various classification methods to recognize handwritten digits \cite{Lecun1998}.
 
-| ![assets/bank-checks.png](assets/bank-checks.png)| 
-|:--:| 
-| *Reprinted from \cite{BankCheckImage} under fair use and education.* |
-
-## Background Context
+### Background Context
 
 "Real-life document recognition systems are composed of multiple modules including field extraction, segmentation, recognition, and language modeling" [@Lecun1998]. Our project will focus mainly on the recognition part of the process. Within the realm of recognition, specifically handwriting recognition (HWR), there are two methods: online and offline.
 
@@ -24,22 +20,21 @@ Within this project, we explore the seminal paper: "Gradient-Based Learning Appl
 
 1. **Online methods** - "Online methods involve a digital pen/stylus and have access to the stroke information, pen location while text is being written as shown in the figure. Since they tend to have a lot of information in regard to the flow of text being written they can be classified at a pretty high accuracy and the demarcation between different characters in the text becomes much more clear" [@Matcha_2022].
 
-1. **Offline methods** - Offline methods involve recognizing text once it's written down and thus won't have information to the strokes/directions involved during writing, however, it will also have the addition of some background noise such as paper and shadows. [@Matcha_2022].
+1. **Offline methods** - Offline methods involve recognizing text once it's written down and thus won't have information to the strokes/directions involved during writing, however, it will also have the addition of some background noise such as paper and shadows [@Matcha_2022].
 
 
 This project will focus on following the applications mentioned in the seminal paper, where we will build an identification/recognition module to read a bank check. All the processes within document recognition must occur to read a bank check's various components: date, payee, amount (in word form), amount (in numeric form), and signature. Due to time constraints, we will focus only building the module to classify the handwritten digits within the amount specified field of a check, and leave the rest of the implementation to our readers as our approach can be extended to the other fields as well.
 
-
-## Problem Statement
+### Problem Statement
 
 > [!NOTE]
 > *This problem statement is slightly different from the original project submission due to my own personal interests changing, but the subject area and solution application remain the same. The focus has shifted from online HWR method from a pen computer into an offline HWR method.*
 
-**As a user of a bank, I would like to send a picture of my check in order to process the transaction.**
+**As a user of a bank, I would like to send a picture of my check in order to process a transaction.**
 
 Within this scenario, our hypothetical bank already has the multiple module system running, except they require a handwritten digit recognition model in order to extract the amount that needs to be transacted between both parties.
 
-As the user will be sending a picture, the project primarily focuses on handwriting recognition via the offline method, and will try to optimize with that in mind.
+As the user will be sending a picture, the project will primarily focus on handwriting recognition via the offline method.
 
 ### Objective
 
@@ -55,4 +50,6 @@ The significance of this project is to showcase the ability to convert physical 
 
 ### Related Work
 
+There are numerous previous works who have delved into classifying handwritten digits, specifically from the MNIST Dataset. From the seminal paper in 1998, Yann Lecun's team had created LeNet-5, a convolutional neural network (CNN), which had achieved an accuracy of over 98%. In addition, their team had also compared various other classification methods, notably, they used a support vector machine (SVM) that used the polynomial kernel that also achieved accuracies of over 98% [@Lecun1998]. As of now, 35 years after the seminal paper, the highest accuracy recorded is 99.87% achieved through an ensemble of Homogeneous Vector Capsules (HVCs) that also optimizes on the number of parameters and required amount of training epochs [@Byerly2020]. Throughout that time, most of the further experimentation to improve accuracies have still relied on the fundamental principle(s) of utilizing deep learning to solve this problem, and still use the base essence of CNNs (either in ensemble or combined into different architectures) to achieve higher accuracies.
 
+In terms of the scope of this project, (and what I personally understand), I will tackle this problem from the classification algorithms taught within my undergraduate education and my preliminary research into the subject field. We will utilize logarithmic regression, SVMs, Decision Tree, Random Forest, and multilayer perceptrons with various activation function(s).
