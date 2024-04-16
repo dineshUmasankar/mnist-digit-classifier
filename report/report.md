@@ -52,11 +52,35 @@ There are numerous physical forms and papers, and building out the digit classif
 
 The significance of this project is to showcase the ability to convert physical documents into electronic format(s), which would increase one's capability to search and retrieve, and possibly generate new content, especially in our modern day of generative artificial intelligence. The principle(s) of this project can be applied into any application-specific or industry-specific instance to provide key insights or accelerate existing processes.
 
-### Related Work
+### Related Works
 
-There are numerous previous works who have delved into classifying handwritten digits, specifically from the MNIST Dataset. From the seminal paper in 1998, Yann Lecun's team had created LeNet-5, a convolutional neural network (CNN), which had achieved an accuracy of over 98%. In addition, their team had also compared various other classification methods, notably, they used a support vector machine (SVM) that used the polynomial kernel that also achieved accuracies of over 98% [@Lecun1998]. As of now, 35 years after the seminal paper, the highest accuracy recorded is 99.87% achieved through an ensemble of Homogeneous Vector Capsules (HVCs) that also optimizes on the number of parameters and required amount of training epochs [@Byerly2020]. Throughout that time, most of the further experimentation to improve accuracies have still relied on the fundamental principle(s) of utilizing deep learning to solve this problem, and still use the base essence of CNNs (either in ensemble format or combined into different architectures) to achieve higher accuracies.
+There are numerous previous works who have delved into classifying handwritten digits, specifically from the MNIST Dataset. From the seminal paper in 1998, Yann Lecun's team had created LeNet-5, a convolutional neural network (CNN), which had achieved an accuracy of over 98%. In addition, their team had also compared various other classification methods, notably, they used a support vector machine (SVM) that used the polynomial kernel that also achieved accuracies of over 98% [@Lecun1998]. As of now, 35 years after the seminal paper, the highest accuracy recorded is 99.87% achieved through an ensemble of Homogeneous Vector Capsules (HVCs) that also optimizes on the number of parameters and required amount of training epochs [@Byerly2020]. With recent advancements in activation functions and weight initialization, alongside different optimizations for training a neural network such as the Adam Optimizer, there have been plenty of improvements to make the classification not only just more accurate, but more efficient and faster to train [@Karpathy2022]. Furthermore, many implementations have started to create "synthetic data" by shifting, tilting, rotating the digits in a slight manner to create variations similar to human handwriting via affine and elastic distortions in order to feed their neural network models with more training data, which did result much better accuracies [@Simard]. Throughout that time, most of the further experimentation to improve accuracies have still relied on the fundamental principle(s) of utilizing deep learning to classify digits, and still use the base essence of CNNs (either in ensemble format or combined into different architectures) to achieve higher accuracies.
 
 In terms of the scope of this project, (and what I personally understand), I will tackle this problem from the classification algorithms taught within my undergraduate education and my preliminary research into the subject field. We will utilize logarithmic regression, SVMs, Decision Tree, Random Forest, and multilayer perceptrons with various activation function(s).
+
+\newpage
+
+## Data
+
+### Data Source
+
+"The database used to train our models comes from modifications made by the original seminal paper's authors. The original database was constructed by combining the National Institute of Standards and Technology's (NIST) Special Database 3 (SD-3) and Special Database 1 (SD-1), which contained binary images of handwritten digits. SD-3 was originally collected from Census Bureau employees, while SD-1 was collected among high-school students" [@Lecun1998]. The original black and white (bilevel) images were size-normalized and centered in a fixed size of 28x28 pixels by the original authors, and they had also created many versions that involved anti-aliasing (image interpolation) and deslanting techniques applied on the images as well [@Lecun1998].
+
+### Data Format
+
+These images of scanned handwriting samples are from 250 people (each for the training and test set) and are grayscale and 28 by 28 pixels in size, where each pixel range(s) from 0-255 on the black to white color channel [@Nielsen2015]. The pixels will be represented as a 1-D vector of 784 entries that range from 0-255 representing pixel intensity.
+
+There are 60,000 train samples (bilevel images) of handwritten digits from 250 people, and 10,000 test samples (bilevel) images from 250 different people as well, which will respectively be used to train up classification models to recognize handwritten digits [@lecun2010mnist].
+
+\newpage
+
+### Data Example
+
+![First 9 handwritten digits from the training dataset of the MNIST Database](assets/data_example.png)
+
+## Methodology
+
+### Data Visualization
 
 \newpage
 

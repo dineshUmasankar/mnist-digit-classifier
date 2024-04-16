@@ -52,4 +52,21 @@ The significance of this project is to showcase the ability to convert physical 
 
 There are numerous previous works who have delved into classifying handwritten digits, specifically from the MNIST Dataset. From the seminal paper in 1998, Yann Lecun's team had created LeNet-5, a convolutional neural network (CNN), which had achieved an accuracy of over 98%. In addition, their team had also compared various other classification methods, notably, they used a support vector machine (SVM) that used the polynomial kernel that also achieved accuracies of over 98% [@Lecun1998]. As of now, 35 years after the seminal paper, the highest accuracy recorded is 99.87% achieved through an ensemble of Homogeneous Vector Capsules (HVCs) that also optimizes on the number of parameters and required amount of training epochs [@Byerly2020]. Throughout that time, most of the further experimentation to improve accuracies have still relied on the fundamental principle(s) of utilizing deep learning to solve this problem, and still use the base essence of CNNs (either in ensemble or combined into different architectures) to achieve higher accuracies.
 
-In terms of the scope of this project, (and what I personally understand), I will tackle this problem from the classification algorithms taught within my undergraduate education and my preliminary research into the subject field. We will utilize logarithmic regression, SVMs, Decision Tree, Random Forest, and multilayer perceptrons with various activation function(s).
+In terms of the scope of this project, (and what I personally understand), I will tackle this problem from the traditional classification algorithms taught within my undergraduate education and my preliminary research into the subject field to combine a bit of the modern advancements. We will utilize logarithmic regression, SVMs, Decision Tree, Random Forest, and multilayer perceptrons with various activation function(s).
+
+## Data
+
+### Data Source
+
+"The database used to train our models comes from modifications made by the original seminal paper's authors. The original database was constructed by combining the National Institute of Standards and Technology's (NIST) Special Database 3 (SD-3) and Special Database 1 (SD-1), which contained binary images of handwritten digits. SD-3 was originally collected from Census Bureau employees, while SD-1 was collected among high-school students" [@Lecun1998]. The original black and white (bilevel) images were size-normalized and centered in a fixed size of 28x28 pixels by the original authors, and they had also created many versions that involved anti-aliasing (image interpolation) and deslanting techniques applied on the images as well [@Lecun1998].
+
+### Data Format
+
+These images of scanned handwriting samples are from 250 people (each for the training and test set) and are grayscale and 28 by 28 pixels in size, where each pixel range(s) from 0-255 on the black to white color channel [@Nielsen2015]. The pixels will be represented as a 1-D vector of 784 entries that range from 0-255 representing pixel intensity.
+
+There are 60,000 train samples (bilevel images) of handwritten digits from 250 people, and 10,000 test samples (bilevel) images from 250 different people as well, which will respectively be used to train up classification models to recognize handwritten digits [@lecun2010mnist].
+
+### Data Example
+
+![Example of the first 9 handwritten digits from the training dataset of the MNIST Database [@lecun2010mnist]](assets/data_example_s.png)
+
