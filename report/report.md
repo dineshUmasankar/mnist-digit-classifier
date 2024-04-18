@@ -24,7 +24,7 @@ Within this project, we explore the seminal paper: "Gradient-Based Learning Appl
 
 \newpage
 
-This project will focus on following the applications mentioned in the seminal paper, where we will build an identification/recognition module to read a bank check. All the processes within document recognition must occur to read a bank check's various components: date, payee, amount (in word form), amount (in numeric form), and signature. Due to time constraints, we will focus only building the module to classify the handwritten digits within the amount specified field of a check, and leave the rest of the implementation to our readers as our approach can be extended to the other fields as well.
+This project will take an exploratory angle at the traditional classification problem presented within the seminal paper, where we will build an identification/recognition module to read a bank check. Due to time constraints, we will focus only on building the model to classify the handwritten digits within the amount specified field of a bank check, and leave the rest of the implementation to our readers as our approach can be extended to the other fields and contexts as well.
 
 ### Problem Statement
 
@@ -40,11 +40,12 @@ As the user will be sending a picture, the project will primarily focus on handw
 
 ### Objective
 
-Build out an identification / recognition module for the amount (in numeric form) field from a check to classify handwritten digits in the context of a bank check reader application within a hypothetical bank.
+- Build out an identification / recognition model for the amount (in numeric form) field from a check to classify handwritten digits in the context of a bank check reader application.
+- We are assuming this bank check reader application already has built the field extraction and segmentation models.
 
 ### Motivation
 
-There are numerous physical forms and papers, and building out the digit classification system could further digital transformation of existing businesses and industries. By digitizing, it opens up a whole new array of possibilities to analyze at depth for any company, such as being able to feed the information into a Retrieval-Augmented Generation (RAG) model to extract key insights. Furthermore, it would be the first stepping stone to build a generalized OCR system that can be applied regardless of context.
+There are numerous physical forms and papers, and building out a digital classification system could further digital transformation of existing businesses and industries. The digitization of data presents a diverse range of opportunities for comprehensive analysis for any organization, including the ability to feed the data into a Retrieval-Augmented Generation (RAG) model to extract crucial insights. Moreover, it would serve as the initial step towards constructing a comprehensive OCR system that can be utilized regardless of the context.
 
 \newpage
 
@@ -56,7 +57,7 @@ The significance of this project is to showcase the ability to convert physical 
 
 There are numerous previous works who have delved into classifying handwritten digits, specifically from the MNIST Dataset. From the seminal paper in 1998, Yann Lecun's team had created LeNet-5, a convolutional neural network (CNN), which had achieved an accuracy of over 98%. In addition, their team had also compared various other classification methods, notably, they used a support vector machine (SVM) that used the polynomial kernel that also achieved accuracies of over 98% [@Lecun1998]. As of now, 35 years after the seminal paper, the highest accuracy recorded is 99.87% achieved through an ensemble of Homogeneous Vector Capsules (HVCs) that also optimizes on the number of parameters and required amount of training epochs [@Byerly2020]. With recent advancements in activation functions and weight initialization, alongside different optimizations for training a neural network such as the Adam Optimizer, there have been plenty of improvements to make the classification not only just more accurate, but more efficient and faster to train [@Karpathy2022]. Furthermore, many implementations have started to create "synthetic data" by shifting, tilting, rotating the digits in a slight manner to create variations similar to human handwriting via affine and elastic distortions in order to feed their neural network models with more training data, which did result much better accuracies [@Simard]. Throughout that time, most of the further experimentation to improve accuracies have still relied on the fundamental principle(s) of utilizing deep learning to classify digits, and still use the base essence of CNNs (either in ensemble format or combined into different architectures) to achieve higher accuracies.
 
-In terms of the scope of this project, (and what I personally understand), I will tackle this problem from the classification algorithms taught within my undergraduate education and my preliminary research into the subject field. We will utilize logarithmic regression, SVMs, Decision Tree, Random Forest, and multilayer perceptrons with various activation function(s).
+In terms of the scope of this project, (and what I personally understand), I will tackle this problem with my own rudimentary understanding of CNNs, and attempt to optimize my process from external research and resources.
 
 \newpage
 
@@ -82,8 +83,6 @@ There are 60,000 train samples (bilevel images) of handwritten digits from 250 p
 
 \newpage
 
-## Methodology
-
 ### Data Visualization
 
 As we are dealing with a classification problem, I wanted to identify if there were any class imbalances before training a model, so I visualized the frequency of digits within the training dataset, and it appears to be evenly spread.
@@ -95,6 +94,111 @@ As we are dealing with a classification problem, I wanted to identify if there w
 Along the same manner, I wanted to ensure there is no class imbalance in the testing dataset as well, and the frequencies of each digit appear to be distributed evenly as well.
 
 ![Test MNIST Database Digit Distribution](assets/test_digit_distrib.png)
+
+\newpage
+
+## Proposed Methodologies
+
+In order to first propose methodology towards reading digits from a bank check, we have to discuss what type of problem we are solving. As we are classifying handwritten digits from an image, our project is a classification problem, where we have multiple labels (digits 0-9) to classify. As such, our evaluation metric will have to be a loss function that performs best for multinomial classification.
+
+To solve our classification problem, our project starts off with naive approaches, and then compares it to more complex approaches in order to slowly build a more accurate model and analyze if the complexity of the classification algorithm results in better-performing models (in terms of accuracy, precision, recall, training time, and inference time).
+
+### Initial Naive Classification Approaches
+
+The following approaches are naive because they tend to perform well where the data contains linear relationships, and handwriting can be quite unique per person. These approaches tend to struggle with non-linear relationships and complex patterns generally, and it will be interesting to see their performance on the dataset.
+
+- Logistic Regression Classifier
+- Naive Bayes Classifier
+- Decision Trees Classifier
+- K-Nearest Neighbors Classifier
+- Support Vector Machines Classifier
+
+Each of these approaches will have their parameters and hyperparameters tuned if possible and compared against each other for their accuracies via GridSearchCV from scikit-learn.
+
+### Feedforward Neural Network Classification Approach
+
+The benefits of utilizing neural networks is that they are incredibly flexible and versatile, as they can learn highly complex relationships between input and output data. Moreover, they can handle non-linear relationships and are able of approximating any continuous function, as per the universality theorem [@Nielsen2015]. This project will utilize the MLPClassifier from SKLearn in order to train up a simple feedforward neural network.
+
+- Solve via FeedForward Neural Networks
+    - Multiple Hidden Layers
+    - Multiple Activation Functions
+    - Weight initialization
+    - Apply Dropout
+    - Apply GridSearchCV on HyperParameter Tuning
+    - Stochastic Gradient Descent vs. Adam
+
+- Solve via Deep Learning Neural Networks (Convolutional Networks)
+    - Convolutional Neural Networks
+        - Multiple Hidden Layers
+        - Multiple Activation Functions in each Layer
+        - Weight initialization
+        - Apply Dropout
+    - Apply GridSearchCV on HyperParameter Tuning
+
+- Future Vision
+    - Apply more extensive approaches in the Deep Learning Approach
+    - Consider using Data Augmentation
+    - Consider Using Noising to increase dataset
+    - Consider creating ensemble models of best models from the specific approach category
+    - Figure out creating mixed ensemble models
+
+### Preprocessing
+
+As we know, the 28x28 grayscale images have pixels that range from [0, 255]. When building a neural network, typically a neuron's activation function performs better when their input is constrained between [0, 1]. As such, we will scale our pixels within our image to the range [0, 1]. We divide the original pixel value by 255, as that is the maximum intensity of a pixel within our black and white handwritten digit images.
+
+\begin{equation}\label{eq:pixel-normalization}
+    pixel\_normalized = \frac{original\_pixel}{255.0}
+\end{equation}
+
+### Frameworks
+
+Our project uses the following list of tools to create & train up models:
+
+- Python (3.12.12)
+- Scikit-learn
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
+- TensorFlow
+
+To find more specifics on how to reproduce our results or details regarding dependency versions, please see the appendix section. Most of our initial development was done in Google Colab within Jupyter Notebooks and then was transferred to our local development environments.
+
+### Procedures
+
+
+
+
+\newpage
+
+
+
+## Experiments
+
+### Data Division (Training / Testing)
+
+Our dataset contains a total of 70,000 images, and we decided to split into 60,000 images dedicated towards training and the remaining 10,000 images towards testing, as the original paper had split the dataset in the same way [@Lecun1998]. To ensure that our models do not undergo overfitting, we utilized K-Fold Cross Validation, where K was set to 5 (as it was the recommended default), and this was specifically used during the GridSearchCV process when attempting to optimize parameters towards the best model for each classification approach.
+
+### Parameter Tuning
+
+
+
+### Evaluation Metrics
+
+### Results
+
+### Analysis
+
+## Conclusion
+
+### Limitations
+
+### Unresolved Issues
+
+### Future Direction
+
+## Appendix
 
 \newpage
 
