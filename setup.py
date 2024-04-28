@@ -6,6 +6,7 @@ with open('requirements.txt') as f:
 setup(
     name='handwritten_mnist_digit_classification',
     version='0.1',
-    packages=find_packages(),
+    # Exclude my own project as it's not meant to be a package
+    packages=find_packages(exclude=['handwritten_mnist_digit_classification']),
     install_requires=requirements,
 )
