@@ -79,7 +79,7 @@ There are 60,000 train samples (bilevel images) of handwritten digits from 250 p
 
 ### Data Example
 
-![First 9 handwritten digits from the training dataset of the MNIST Database](assets/data_example.png)
+![Graphically visualizing (all pixels) first 9 handwritten digits from the training dataset](assets/data_example.png)
 
 \newpage
 
@@ -99,48 +99,19 @@ Along the same manner, I wanted to ensure there is no class imbalance in the tes
 
 ## Proposed Methodologies
 
-In order to first propose methodology towards reading digits from a bank check, we have to discuss what type of problem we are solving. As we are classifying handwritten digits from an image, our project is a classification problem, where we have multiple labels (digits 0-9) to classify. As such, our evaluation metric will have to be a loss function that performs best for multinomial classification.
+In order to first propose methodology towards reading digits from a bank check, we have to discuss what type of problem we are solving. As we are classifying handwritten digits from an image, our project is a classification problem, where we have multiple labels (digits 0-9) to classify.
 
-To solve our classification problem, our project starts off with naive approaches, and then compares it to more complex approaches in order to slowly build a more accurate model and analyze if the complexity of the classification algorithm results in better-performing models (in terms of accuracy, precision, recall, training time, and inference time).
+To solve our multinomial classification problem, our project starts off with naive approaches which utilize arbitrary parameters, which are later tuned if the initial performance is desirable.
 
 ### Initial Naive Classification Approaches
 
-The following approaches are naive because they tend to perform well where the data contains linear relationships, and handwriting can be quite unique per person. These approaches tend to struggle with non-linear relationships and complex patterns generally, and it will be interesting to see their performance on the dataset.
+The following approaches are initially tested with arbitrary parameters that were chosen based on prior experience, and then tuned if these initial models perform desirably.
 
 - Logistic Regression Classifier
 - Naive Bayes Classifier
 - Decision Trees Classifier
 - K-Nearest Neighbors Classifier
 - Support Vector Machines Classifier
-
-Each of these approaches will have their parameters and hyperparameters tuned if possible and compared against each other for their accuracies via GridSearchCV from scikit-learn.
-
-### Feedforward Neural Network Classification Approach
-
-The benefits of utilizing neural networks is that they are incredibly flexible and versatile, as they can learn highly complex relationships between input and output data. Moreover, they can handle non-linear relationships and are able of approximating any continuous function, as per the universality theorem [@Nielsen2015]. This project will utilize the MLPClassifier from SKLearn in order to train up a simple feedforward neural network.
-
-- Solve via FeedForward Neural Networks
-    - Multiple Hidden Layers
-    - Multiple Activation Functions
-    - Weight initialization
-    - Apply Dropout
-    - Apply GridSearchCV on HyperParameter Tuning
-    - Stochastic Gradient Descent vs. Adam
-
-- Solve via Deep Learning Neural Networks (Convolutional Networks)
-    - Convolutional Neural Networks
-        - Multiple Hidden Layers
-        - Multiple Activation Functions in each Layer
-        - Weight initialization
-        - Apply Dropout
-    - Apply GridSearchCV on HyperParameter Tuning
-
-- Future Vision
-    - Apply more extensive approaches in the Deep Learning Approach
-    - Consider using Data Augmentation
-    - Consider Using Noising to increase dataset
-    - Consider creating ensemble models of best models from the specific approach category
-    - Figure out creating mixed ensemble models
 
 ### Preprocessing
 
@@ -163,7 +134,7 @@ Our project uses the following list of tools to create & train up models:
 - Jupyter Notebook
 - TensorFlow
 
-To find more specifics on how to reproduce our results or details regarding dependency versions, please see the appendix section. Most of our initial development was done in Google Colab within Jupyter Notebooks and then was transferred to our local development environments.
+To find more specifics on how to reproduce our results or details regarding dependency versions, please see the appendix section. Most of our initial development was done in Google Colaboratory through Jupyter Notebooks and then was transferred to our local development environments.
 
 ### Procedures
 
