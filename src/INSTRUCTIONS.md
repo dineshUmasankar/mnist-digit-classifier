@@ -7,7 +7,7 @@ CUDA drivers and setting up proper dependency management was quite a hassle, esp
 different platforms and machines. Use the badge below, in order to open up the project and reproduce 
 project works.
 
-<a target="_blank" href="https://colab.research.google.com/github/dineshUmasankar/mnist-digit-classifier/src/main.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/dineshUmasankar/mnist-digit-classifier/blob/main/src/main.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
