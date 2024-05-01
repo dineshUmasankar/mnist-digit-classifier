@@ -103,7 +103,7 @@ In order to first propose methodology towards reading digits from a bank check, 
 
 To solve our multinomial classification problem, our project starts off with naive approaches which utilize arbitrary parameters, which are later tuned if the initial performance is desirable.
 
-### Initial Naive Classification Approaches
+### Classification Approaches
 
 The following approaches are initially tested with arbitrary parameters that were chosen based on prior experience, and then tuned if these initial models perform desirably.
 
@@ -112,6 +112,7 @@ The following approaches are initially tested with arbitrary parameters that wer
 - Decision Trees Classifier
 - K-Nearest Neighbors Classifier
 - Support Vector Machines Classifier
+- Artificial Neural Networks (ANN)
 
 ### Preprocessing
 
@@ -120,6 +121,8 @@ As we know, the 28x28 grayscale images have pixels that range from [0, 255]. Whe
 \begin{equation}\label{eq:pixel-normalization}
     pixel\_normalized = \frac{original\_pixel}{255.0}
 \end{equation}
+
+\newpage
 
 ### Frameworks
 
@@ -138,24 +141,24 @@ To find more specifics on how to reproduce our results or details regarding depe
 
 ### Procedures
 
-
-
-
 \newpage
-
-
 
 ## Experiments
 
 ### Data Division (Training / Testing)
 
-Our dataset contains a total of 70,000 images, and we decided to split into 60,000 images dedicated towards training and the remaining 10,000 images towards testing, as the original paper had split the dataset in the same way [@Lecun1998]. To ensure that our models do not undergo overfitting, we utilized K-Fold Cross Validation, where K was set to 5 (as it was the recommended default), and this was specifically used during the GridSearchCV process when attempting to optimize parameters towards the best model for each classification approach.
+Our dataset contains a total of 70,000 images, and we decided to split into 60,000 images dedicated towards training and the remaining 10,000 images towards testing, as the original paper had split the dataset in the same way [@Lecun1998].
 
 ### Parameter Tuning
 
 
 
 ### Evaluation Metrics
+
+- Accuracy
+- F1-Score
+- Recall
+- Precision
 
 ### Results
 
@@ -167,9 +170,20 @@ Our dataset contains a total of 70,000 images, and we decided to split into 60,0
 
 ### Unresolved Issues
 
+GPU-Based SVM by cuML notes that it doesn't work
+best on sparse datasets, but to verify if this statement
+is true, and comparing it with other GPU based SVM implementations (thunderSVM).
+
 ### Future Direction
 
+We could extend into tackling this problem with Convolutional Neural Networks,
+and applying better hyperparameter tuning on the traditional ANN (MLP) models.
+
 ## Appendix
+
+Source code can be found at [GitHub](https://github.com/dineshUmasankar/mnist-digit-classifier), and is 
+recommended to run in Google Colaboratory within a GPU-based environment
+to reproduce results.
 
 \newpage
 
